@@ -19,7 +19,7 @@ def require_auth():
             session_token = request.cookies.get("session_token")
 
             if not session_token:
-                return redirect("http://localhost:5000/login/27620469153")
+                return redirect("https://auth1.klresolute.co.za/login/27620469153")
 
             conn = get_db_connection()
             cur = conn.cursor()
@@ -36,7 +36,7 @@ def require_auth():
             conn.close()
 
             if not session:
-                return redirect("http://localhost:5000/login/27620469153")
+                return redirect("https://auth1.klresolute.co.za/login/27620469153")
 
             return f(*args, **kwargs)
 
