@@ -42,3 +42,4 @@ def require_auth():
 
         return wrapper
     return decorator
+
