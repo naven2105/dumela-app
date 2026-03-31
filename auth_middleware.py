@@ -1,6 +1,6 @@
 """
 File: auth_middleware.py
-Path: F:\Projects\dumela-app\auth_middleware.py
+Path: F:\\Projects\\dumela-app\\auth_middleware.py
 
 Purpose:
 - Validate session from auth system
@@ -42,4 +42,3 @@ def require_auth():
 
         return wrapper
     return decorator
-
