@@ -2,10 +2,19 @@
 # Dumela App - Main Application Entry Point
 # =========================================
 
-from flask import Flask
+from flask import Flask, request, redirect
 from auth_middleware import require_auth
 
 app = Flask(__name__)
+
+
+# -----------------------------------------
+# Force HTTPS
+# -----------------------------------------
+@app.before_request
+def force_https():
+    if request.headers.get("X-Forwarded-Proto", "http") != "https":
+        return redirect(request.url.replace("http://", "https://", 1))
 
 
 # -----------------------------------------
