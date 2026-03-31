@@ -18,6 +18,18 @@ def force_https():
 
 
 # -----------------------------------------
+# Security Headers
+# -----------------------------------------
+@app.after_request
+def set_security_headers(response):
+    response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    return response
+
+
+# -----------------------------------------
 # Root Route (Health Check / Base Route)
 # -----------------------------------------
 @app.route("/")
