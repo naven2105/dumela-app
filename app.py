@@ -3,7 +3,7 @@
 # =========================================
 
 from flask import Flask
-from auth_middleware import auth_required
+from auth_middleware import require_auth
 
 app = Flask(__name__)
 
@@ -17,10 +17,10 @@ def home():
 
 
 # -----------------------------------------
-# Example Protected Route (keep existing)
+# Example Protected Route
 # -----------------------------------------
 @app.route("/dashboard")
-@auth_required
+@require_auth()
 def dashboard():
     return "Dashboard - Authenticated"
 
